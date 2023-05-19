@@ -12,9 +12,15 @@ let playbutton = document.getElementById("play-button");
 let userinput = document.getElementById("user-input");
 let resultarea = document.getElementById("result-area");
 let resetbutton = document.getElementById("reset-button");
+let chances = 5;
+let gameover=false;
+let chancearea = document.getElementById("chance-area");
+let history=[];
 
+userinput.addEventListener("click", function(){userinput.value=""});
 playbutton.addEventListener("click", start);
 resetbutton.addEventListener("click", reset);
+
 
 function randomnumber(){
     comnumber = Math.floor(Math.random()*(100)+1);
@@ -22,21 +28,45 @@ function randomnumber(){
 }
 
 function start(){
-    let uservalue = userinput.value
+    let uservalue = userinput.value;
+
+    if(uservalue<1 || uservalue>100){
+        resultarea.textContent="1과 100사이 숫자를 입력해주세요";
+        return; 
+    }
+    if(history.includes(userinput.value)){
+        resultarea.textContent=`중복된 숫자입니다.(${history})`;
+        return; 
+    }
+
+    chances --;
+    chancearea.textContent=`남은 기회는 ${chances}번`;
     if(uservalue < comnumber){
-        resultarea.textContent="up"
+        resultarea.textContent="up";
     }
     else if(uservalue > comnumber){
-        resultarea.textContent="down"
+        resultarea.textContent="down";
     }else
     {
         resultarea.textContent="정답입니다^^"
+    } 
+
+    history.push(userinput.value)
+    console.log(history)
+
+    if(chances<1){
+        gameover=true
+    }
+    if(gameover==true){
+        playbutton.disabled = true
+        resultarea.textContent= `틀렸습니다 정답은 ${comnumber}입니다`  // 보완할점
     }
 }
+
 function reset(){
-    userinput.value="";
-    randomnumber()
-    resultarea.textContent="결과값이 여기에 나옵니다"
+    document.location.reload();
+
+  
 }
 
 randomnumber();
