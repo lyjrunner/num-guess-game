@@ -40,7 +40,7 @@ function start(){
     }
 
     chances --;
-    chancearea.textContent=`남은 기회는 ${chances}번`;
+    chancearea.textContent=`남은 기회는? ${chances}번`;
     if(uservalue < comnumber){
         resultarea.textContent="up";
     }

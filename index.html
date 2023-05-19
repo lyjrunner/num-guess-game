@@ -5,16 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="styile.css">
 
 </head>
 <body>
-    <h1>숫자 맞추기 게임!!!</h1>
-    <div id="result-area">결과가 나온다</div>
-    <div id="chance-area">남은찬스</div>
-    <input type="number/" id="user-input">
-    <button id="play-button">play!</button>
-    <button id="reset-button">reset</button>
+<div class="container">
+    <h1 class="title">숫자 맞추기 게임!!!</h1>
+    <div id="result-area"  style= "font-size: 3vw">
+        <h1 class="result-text" style= "font-size: 3vw" > 결과가 나온다</h1>
+    </div>
+        <img src="https://th.bing.com/th/id/OIP.uCgeALHQxvTYAZco6LhE0wHaE8?pid=ImgDet&rs=1" class="main-img">
+    <div id="chance-area" style= "font-size: 3vw">
+        <h1 class="result-text" style= "font-size: 3vw"> 남은 기회는? 5번 </h1>
+    </div>
+    <input type="number" id="user-input" class="form-control mb-10" placeholder="1부터 100까지 숫자를 입력">
+
+
+        <button class="btn btn-success mb-2 button-style" id="play-button"> play! </button></br>
+        <button  id="reset-button" class="btn btn-warning mt-3 button-style button-reset"> Reset! </button>
+    </div>
     <script src="main.js"></script>  
 </body>
 </html>
